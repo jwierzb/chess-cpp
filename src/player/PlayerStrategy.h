@@ -8,11 +8,12 @@
 
 #include "../piece/Color.h"
 #include "../board/Board.h"
+#include "../piece/PieceMove.h"
+#include "../piece/MoveType.h"
 
 class PlayerStrategy {
 public:
-    virtual int move(Board, Color, int * from, int * to, int * beaten);
+    virtual MoveType move(Board *, Color, PieceMove) = 0;
 };
-
 
 #endif //SZACHY_PLAYERSTRATEGY_H

@@ -6,15 +6,27 @@
 #define SZACHY_BOARD_H
 
 
+#include <vector>
 #include "../piece/Piece.h"
+#include <cassert>
 
 class Board {
+
 private:
-    Piece * board;
+    int size;
+    std::vector<std::vector<Piece*>>  board;
+
 public:
+    Board(int size);
+
     void init();
-    Piece *get();
+
     bool checkGameState();
+
+    int getSize() const;
+
+    std::vector<std::vector<Piece*>> &getBoard();
+
 };
 
 

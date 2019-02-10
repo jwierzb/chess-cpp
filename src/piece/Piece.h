@@ -5,18 +5,22 @@
 #ifndef CHESS_PIECE_H
 #define CHESS_PIECE_H
 
+#include <string>
+#include <vector>
 #include "Color.h"
+#include "PieceType.h"
+#include "strategy/PieceMovingStrategy.h"
 
 class Piece {
-
 public:
-    Piece(Color color, int **moves, const String &name);
+    Piece(Color color, PieceMovingStrategy &movingStrategy, PieceType pieceType);
+    std::vector<PieceMove> getMoves(Board * board, Position position);
+    Color getColor() const;
 
 private:
     Color color;
-    int ** moves;
-    String name;
-
+    PieceMovingStrategy & movingStrategy;
+    PieceType pieceType;
 };
 
 

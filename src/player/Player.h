@@ -7,15 +7,18 @@
 
 
 #include "PlayerStrategy.h"
+#include <string>
 
 class Player {
 private:
-    PlayerStrategy playerStrategy;
-    String name;
-public:
-    Player(const PlayerStrategy &playerStrategy, const String &name);
+    PlayerStrategy & playerStrategy;
+    std::string name;
 
-    int move(Board board, Color color, int * a, int * b, int * c);
+public:
+    Player(PlayerStrategy &playerStrategy, const std::string &name);
+
+    MoveType move(Board board, Color color, PieceMove *playerMove);
+
 };
 
 
